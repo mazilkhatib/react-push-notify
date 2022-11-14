@@ -1,23 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
+import addNotification from 'react-push-notification';
 
 function App() {
+  const buttonClick = () => {
+    addNotification({
+        title: 'Warning',
+        subtitle: 'This is a subtitle',
+        message: 'This is a very long message',
+        theme: 'darkblue',
+        native: true // when using native, your OS will handle theming.
+    });
+};
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={setTimeout(buttonClick,5000)}>click</button>
     </div>
   );
 }
